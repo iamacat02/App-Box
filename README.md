@@ -1,4 +1,4 @@
-# AppBox (App Launcher)
+# 📦 AppBox — Android App Launcher
 
 <p align="center">
   <b>A clean, list-style Android launcher inspired by Greenify.</b><br/>
@@ -17,20 +17,16 @@
 
 ## 📱 Screenshots
 
-<table align="center">
-  <tr>
-    <th align="center">Main Screen</th>
-    <th align="center">Add Apps</th>
-    <th align="center">Manage Sections</th>
-    <th align="center">Settings</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="screenshots/main_screen.png" width="200" alt="Main Screen"/></td>
-    <td align="center"><img src="screenshots/add_apps.png" width="200" alt="Add Apps"/></td>
-    <td align="center"><img src="screenshots/manage_sections.png" width="200" alt="Manage Sections"/></td>
-    <td align="center"><img src="screenshots/settings.png" width="200" alt="Settings"/></td>
-  </tr>
-</table>
+<p align="center">
+  <img src="screenshots/main_screen.png" width="23%" alt="AppBox Main Screen"/>
+  <img src="screenshots/add_apps.png" width="23%" alt="Add Apps Screen"/>
+  <img src="screenshots/manage_sections.png" width="23%" alt="Manage Sections Screen"/>
+  <img src="screenshots/settings.png" width="23%" alt="Settings Screen"/>
+</p>
+
+<p align="center">
+  <sub>Main Screen · Add Apps · Manage Sections · Settings</sub>
+</p>
 
 ---
 
@@ -57,51 +53,73 @@ UI (Jetpack Compose) ──► UiEvent ──► ViewModel ──► UseCase ─
                                         └─────────── StateFlow<UiState> ◄───────────┘
 ```
 
+### Project Structure
+
 - **`data/`**: Room database (`AppDatabase`), Entities, DAOs, `DataStore` settings repository, and `InstalledAppsRepository`.
 - **`domain/`**: Use cases for section management, app sorting, name validation, and app memberships.
 - **`ui/`**: Declarative UI built entirely in **Jetpack Compose** (M3), organized into screen states, sealed UI events, and custom composable components.
-- **`di/`**: Light-weight manual dependency injection container (`AppContainer`).
+- **`di/`**: Lightweight manual dependency injection container (`AppContainer`).
 
 ---
 
 ## 🛠️ Requirements & Tech Stack
 
-- **Min SDK:** 24 (Android 7.0 Nougat+)
-- **Target / Compile SDK:** 35 / 37
-- **Language:** Kotlin 2.2.10
-- **UI Framework:** Jetpack Compose (Compose BOM 2026.02.01)
-- **Database:** Room 2.8.5
-- **Build Tool:** Gradle 9.6.0 with AGP 9.4.1
+| Component | Version / Details |
+|---|---|
+| Minimum Android | Android 7.0 (API 24) |
+| Target SDK | 35 |
+| Compile SDK | 37 |
+| Language | Kotlin 2.2.10 |
+| UI Framework | Jetpack Compose |
+| Compose BOM | 2026.02.01 |
+| Database | Room 2.8.5 |
+| Build Tool | Gradle 9.6.0 |
+| Android Gradle Plugin | AGP 9.4.1 |
+| JDK | 21+ |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Android Studio Ladybug (or newer)
-- JDK 21+ (Gradle automatically manages its JDK toolchain)
-- Android SDK Platform 37 installed
+
+- Android Studio Ladybug or newer
+- JDK 21+
+- Android SDK Platform 37
+- Git
 
 ### Building from Source
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/iamacat/AppBox.git
-   cd AppBox
-   ```
+**1. Clone the repository**
 
-2. **Build Debug APK:**
-   ```bash
-   ./gradlew :app:assembleDebug
-   ```
-   The APK will be generated at:
-   `app/build/outputs/apk/debug/app-debug.apk`
+```bash
+git clone https://github.com/iamacat/AppBox.git
+cd AppBox
+```
 
-3. **Install on connected device / emulator via ADB:**
-   ```bash
-   adb install -r app/build/outputs/apk/debug/app-debug.apk
-   adb shell am start -n com.iamacat.appbox/.MainActivity
-   ```
+**2. Build Debug APK**
+
+```bash
+./gradlew :app:assembleDebug
+```
+
+**3. Install on connected device / emulator**
+
+```bash
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+**4. Launch the application**
+
+```bash
+adb shell monkey -p com.iamacat.appbox 1
+```
+
+The generated APK will be available at:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
 
 ---
 
@@ -117,29 +135,46 @@ Run unit tests covering use cases, section name validation, and sorting logic ag
 
 ## 🗺️ Navigation & Controls
 
-- **Top Bar `+`**: Quick-select or create new sections.
-- **Horizontal Swipe**: Swipe left or right across the app list to switch active sections.
-- **FAB `+`**: Open the multi-select app picker for the active section.
-- **Row Long-Press / `⋮`**: Context menu to Launch App, Move/Copy to another section, Remove, or view App Info.
-- **Overflow Menu `⋮`**: Manage Sections, Sort Apps, Refresh App List, Settings, and About dialog.
+| Action | Description |
+|---|---|
+| Top Bar `+` | Quick-select or create new sections |
+| Horizontal Swipe | Swipe left or right across the app list to switch active sections |
+| FAB `+` | Open the multi-select app picker for the active section |
+| Row Long-Press / `⋮` | Context menu to Launch App, Move/Copy to another section, Remove, or view App Info |
+| Overflow Menu `⋮` | Manage Sections, Sort Apps, Refresh App List, Settings, and About dialog |
+
+---
+
+## 📁 Screenshots Directory
+
+Make sure your repository has this structure:
+
+```text
+AppBox/
+├── README.md
+├── screenshots/
+│   ├── main_screen.png
+│   ├── add_apps.png
+│   ├── manage_sections.png
+│   └── settings.png
+├── app/
+├── build.gradle.kts
+└── settings.gradle.kts
+```
+
+**Important:** GitHub filenames are case-sensitive. The screenshot filenames in the README must match the actual files exactly.
 
 ---
 
 ## 📄 License
 
-```text
 Copyright 2026 iamacat
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License.
-You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0.
 
-    http://www.apache.org/licenses/LICENSE-2.0
+You may obtain a copy of the License at:
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations Canadian.
-```
+https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under this License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
