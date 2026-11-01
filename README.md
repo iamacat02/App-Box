@@ -17,9 +17,9 @@
 
 ## 📱 Screenshots
 
-|                  Main Screen                  |                Add Apps                 |                    Manage Sections                    |                Settings                 |
-|:---------------------------------------------:|:---------------------------------------:|:-----------------------------------------------------:|:---------------------------------------:|
-| ![Main Screen](./screenshots/main_screen.png) | ![Add Apps](./screenshots/add_apps.png) | ![Manage Sections](./screenshots/manage_sections.png) | ![Settings](./screenshots/settings.png) |
+|                               Main Screen                                |                              Add Apps                              |                                 Manage Sections                                  |                              Settings                              |
+|:------------------------------------------------------------------------:|:------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------:|
+| <img src="./screenshots/main_screen.png" width="200" alt="Main Screen"/> | <img src="./screenshots/add_apps.png" width="200" alt="Add Apps"/> | <img src="./screenshots/manage_sections.png" width="200" alt="Manage Sections"/> | <img src="./screenshots/settings.png" width="200" alt="Settings"/> |
 
 ---
 
