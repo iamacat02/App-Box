@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Min%20SDK-24%20(Android%207.0)-brightgreen.svg?style=flat-square" alt="Min SDK"/>
   <img src="https://img.shields.io/badge/Language-Kotlin%202.2-blue.svg?style=flat-square&logo=kotlin" alt="Language"/>
   <img src="https://img.shields.io/badge/UI-Jetpack%20Compose-purple.svg?style=flat-square&logo=jetpackcompose" alt="Jetpack Compose"/>
-  <img src="https://img.shields.io/badge/Database-Room-orange.svg?style=flat-square" alt="Room"/>
+  <img src="https://img.shields.io/badge/Database-Room-orange.svg?style=flat-square&logo=sqlite" alt="Room"/>
 </p>
 
 ---
@@ -18,14 +18,22 @@
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="screenshots/main_screen.png" width="23%" alt="AppBox Main Screen"/>
-  <img src="screenshots/add_apps.png" width="23%" alt="Add Apps Screen"/>
-  <img src="screenshots/manage_sections.png" width="23%" alt="Manage Sections Screen"/>
-  <img src="screenshots/settings.png" width="23%" alt="Settings Screen"/>
+  <a href="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/main_screen.png">
+    <img src="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/main_screen.png" width="180" alt="AppBox Main Screen"/>
+  </a>
+  <a href="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/add_apps.png">
+    <img src="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/add_apps.png" width="180" alt="Add Apps Screen"/>
+  </a>
+  <a href="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/manage_sections.png">
+    <img src="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/manage_sections.png" width="180" alt="Manage Sections Screen"/>
+  </a>
+  <a href="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/settings.png">
+    <img src="https://raw.githubusercontent.com/iamacat/AppBox/main/screenshots/settings.png" width="180" alt="Settings Screen"/>
+  </a>
 </p>
 
 <p align="center">
-  <sub>Main Screen · Add Apps · Manage Sections · Settings</sub>
+  <b>Main Screen · Add Apps · Manage Sections · Settings</b>
 </p>
 
 ---
@@ -45,19 +53,35 @@
 
 ## 🏗️ Architecture
 
-AppBox is built with modern Android development practices adhering to **Clean Architecture** principles and **Unidirectional Data Flow (UDF)**:
+AppBox is built with modern Android development practices adhering to **Clean Architecture** principles and **Unidirectional Data Flow (UDF)**.
 
 ```text
-UI (Jetpack Compose) ──► UiEvent ──► ViewModel ──► UseCase ──► Repository ──► Room / PackageManager
-                                        │                                           │
-                                        └─────────── StateFlow<UiState> ◄───────────┘
+UI (Jetpack Compose)
+       │
+       ▼
+    UiEvent
+       │
+       ▼
+   ViewModel
+       │
+       ▼
+    UseCase
+       │
+       ▼
+  Repository
+       │
+       ▼
+ Room / PackageManager
+       │
+       ▼
+ StateFlow<UiState>
 ```
 
 ### Project Structure
 
 - **`data/`**: Room database (`AppDatabase`), Entities, DAOs, `DataStore` settings repository, and `InstalledAppsRepository`.
 - **`domain/`**: Use cases for section management, app sorting, name validation, and app memberships.
-- **`ui/`**: Declarative UI built entirely in **Jetpack Compose** (M3), organized into screen states, sealed UI events, and custom composable components.
+- **`ui/`**: Declarative UI built entirely in **Jetpack Compose** (Material 3), organized into screen states, sealed UI events, and custom composable components.
 - **`di/`**: Lightweight manual dependency injection container (`AppContainer`).
 
 ---
@@ -66,6 +90,7 @@ UI (Jetpack Compose) ──► UiEvent ──► ViewModel ──► UseCase ─
 
 | Component | Version / Details |
 |---|---|
+| Platform | Android |
 | Minimum Android | Android 7.0 (API 24) |
 | Target SDK | 35 |
 | Compile SDK | 37 |
@@ -103,7 +128,7 @@ cd AppBox
 ./gradlew :app:assembleDebug
 ```
 
-**3. Install on connected device / emulator**
+**3. Install on a connected device or emulator**
 
 ```bash
 adb install -r app/build/outputs/apk/debug/app-debug.apk
@@ -115,7 +140,9 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb shell monkey -p com.iamacat.appbox 1
 ```
 
-The generated APK will be available at:
+### APK Location
+
+After a successful build, the APK will be available at:
 
 ```text
 app/build/outputs/apk/debug/app-debug.apk
@@ -125,7 +152,7 @@ app/build/outputs/apk/debug/app-debug.apk
 
 ## 🧪 Testing
 
-Run unit tests covering use cases, section name validation, and sorting logic against in-memory fake DAOs:
+Run unit tests covering use cases, section name validation, and sorting logic against in-memory fake DAOs.
 
 ```bash
 ./gradlew :app:testDebugUnitTest
@@ -145,24 +172,26 @@ Run unit tests covering use cases, section name validation, and sorting logic ag
 
 ---
 
-## 📁 Screenshots Directory
-
-Make sure your repository has this structure:
+## 📁 Project Structure
 
 ```text
 AppBox/
-├── README.md
+│
+├── app/
+│   └── src/
+│       └── main/
+│
 ├── screenshots/
 │   ├── main_screen.png
 │   ├── add_apps.png
 │   ├── manage_sections.png
 │   └── settings.png
-├── app/
+│
 ├── build.gradle.kts
-└── settings.gradle.kts
+├── settings.gradle.kts
+├── gradlew
+└── README.md
 ```
-
-**Important:** GitHub filenames are case-sensitive. The screenshot filenames in the README must match the actual files exactly.
 
 ---
 
