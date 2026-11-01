@@ -17,9 +17,20 @@
 
 ## 📱 Screenshots
 
-|                               Main Screen                                |                              Add Apps                              |                                 Manage Sections                                  |                              Settings                              |
-|:------------------------------------------------------------------------:|:------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------:|
-| <img src="./screenshots/main_screen.png" width="200" alt="Main Screen"/> | <img src="./screenshots/add_apps.png" width="200" alt="Add Apps"/> | <img src="./screenshots/manage_sections.png" width="200" alt="Manage Sections"/> | <img src="./screenshots/settings.png" width="200" alt="Settings"/> |
+<table align="center">
+  <tr>
+    <th align="center">Main Screen</th>
+    <th align="center">Add Apps</th>
+    <th align="center">Manage Sections</th>
+    <th align="center">Settings</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="screenshots/main_screen.png" width="200" alt="Main Screen"/></td>
+    <td align="center"><img src="screenshots/add_apps.png" width="200" alt="Add Apps"/></td>
+    <td align="center"><img src="screenshots/manage_sections.png" width="200" alt="Manage Sections"/></td>
+    <td align="center"><img src="screenshots/settings.png" width="200" alt="Settings"/></td>
+  </tr>
+</table>
 
 ---
 
